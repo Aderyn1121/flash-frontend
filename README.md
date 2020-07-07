@@ -1,4 +1,4 @@
-# Flash ![Logo](https://i.imgur.com/6F2DnDG.png)
+# Flash ![Logo]()
 
 ## Flash, a photography-focused storefront!
 
