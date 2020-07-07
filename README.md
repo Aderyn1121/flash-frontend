@@ -12,7 +12,8 @@ Flash is an e-commerce platform focused on photography and inspired by sites suc
 
 
 ## Features
-
+- A responsive carousel showing featured items on the landing page.
+- Searching by text, category or brand name!
 
 ## Code Highlights
 
