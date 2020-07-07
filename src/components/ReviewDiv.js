@@ -13,9 +13,6 @@ const ReviewDiv = (props) => {
           <div key={i} className="products__review-block">
             <div className="products__review-author">{review.author}</div>
             <div className="products__review-content">{review.content}</div>
-            <button className="products__review-button">
-              Delete/Edit (maybe)
-            </button>
           </div>
         );
       })}
