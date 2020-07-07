@@ -24,7 +24,7 @@ Flash is an e-commerce platform focused on photography and inspired by sites suc
 
 
 ## Created By 
-[Douglas Ryu](https://github.com/douglasryu)
-[Johnny Bui](https://github.com/JBui923)
-[Emily Burnham](https://github.com/Aderyn1121)
+- [Douglas Ryu](https://github.com/douglasryu)
+- [Johnny Bui](https://github.com/JBui923)
+- [Emily Burnham](https://github.com/Aderyn1121)
 
