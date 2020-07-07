@@ -28,3 +28,6 @@ Flash is an e-commerce platform focused on photography and inspired by sites suc
 - [Johnny Bui](https://github.com/JBui923)
 - [Emily Burnham](https://github.com/Aderyn1121)
 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+
