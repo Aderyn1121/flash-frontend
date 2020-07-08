@@ -1,4 +1,4 @@
-# Flash ![Logo]()
+# Flash ![Logo](./src/assets/camera.png)
 
 ## Flash, a photography-focused storefront!
 
