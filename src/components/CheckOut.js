@@ -14,7 +14,7 @@ const CheckOut = (props) => {
       <div className="checkout__main">
         <div className="checkout__total-container">
           <div className="checkout__total-name">Total</div>
-          <div className="checkout__total-num">{props.total}</div>
+          <div className="checkout__total-num">${props.total}</div>
         </div>
         <div className="checkout__payment">Payment Type: Card</div>
         <button className="checkout__button" onClick={handleClick}>
