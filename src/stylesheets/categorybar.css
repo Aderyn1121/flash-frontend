@@ -18,33 +18,34 @@
 .dropdown_menu {
     display: none;
     position: absolute;
-    width: 230px;
+    width: 262px;
     font-weight: 500;
     z-index: 4;
 }
 
-.dropdown_menu li {
+.dropdown_menu a {
     color: #004387;
     text-decoration: none;
     padding: 12px 16px;
     background-color: #ffffff;
 }
 
-.dropdown_menu li:hover {
+.dropdown_menu a:hover {
     background-color: #004387;
     color: #ffffff;
     transition: all 0.1s;
 }
 
 .nav_dropdown:hover .dropdown_menu{
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 16px;
+    margin-left: -32px;
 }
 
 .nav_dropdown:hover {
     background-color: #ffffff;
     color: #004387;
     font-weight: 600;
-    /* padding: 16px; */
 }
 
