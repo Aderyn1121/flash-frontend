@@ -56,9 +56,9 @@
     font-size: 24px;
     font-weight: 600;
     padding: 10px 0px 5px 5px;
-    margin-left: 5px;
+    margin-left: 10px;
     height: 50px;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .form__container {
@@ -68,18 +68,23 @@
 .form__input {
     padding: 15px 0px 15px 10px;
     font-size: 18px;
-    margin-left: 5px;
-    border: 1px solid black;
+    margin-left: 6px;
+    border: 1px solid rgba(0, 67, 135, 0.2);
+    border-radius: 4px;
     width: 90%;
     margin-bottom: 8px;
 }
 
 .form__button {
     display: block;
-    margin: 15px auto 15px auto;
+    margin: 20px auto 15px auto;
     color: #ffffff;
     background-color: #004387;
-    padding: 5px 120px 5px 120px;
+    padding: 13px 119px 13px 119px;
+    position: relative;
+    right: 2px;
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 .demo__button {
@@ -87,39 +92,46 @@
     color: #ffffff;
     background-color: #004387;
     margin: 0px auto 10px auto;
-    padding: 5px 102px 5px 102px;
+    padding: 13px 101px 13px 101px;
+    border-radius: 4px;
+    position: relative;
+    right: 2px;
+    font-weight: 600;
 }
 
 /* Modal-Signup CSS*/
 .form__input-name-container {
-    margin: 10px 0px 0px 0px;
+    margin: 0px 0px 8px 0px;
     display: flex;
 }
 
 .form__input--firstname {
     display: inline-block;
-    margin: 0 auto;
-    padding: 15px 0px 15px 5px;
+    margin: 0px 5px 0px 6px;
+    padding: 15px 0px 15px 10px;
     font-size: 18px;
-    border: 1px solid black;   
+    border: 1px solid rgba(0, 67, 135, 0.2);
+    border-radius: 4px;
+    width: 124px;
 }
-
-/* first name and last name border box and resizing needs to be done*/
 
 .form__input--lastname {
     display: inline-block;
-    position: relative;
-    right: 40px;
-    padding: 15px 0px 15px 0px;
+    padding: 15px 0px 15px 10px;
     font-size: 18px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 67, 135, 0.2);
+    border-radius: 4px;
+    width: 123px;
 }
 
 .signupform__button {
     display: block;
     color: #ffffff;
     background-color: #004387;
-    margin: 0px auto 10px auto;
-    padding: 5px 102px 5px 102px;
-    /* font-size: 18px; */
+    margin: 15px auto 10px auto;
+    padding: 13px 101px 13px 101px;
+    border-radius: 4px;
+    position: relative;
+    right: 2px;
+    font-weight: 600;
 }
