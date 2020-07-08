@@ -1,4 +1,4 @@
-<img src='./src/assets/camera.png' width='30px'/>
+<img src='./src/assets/camera.png' style='display: inline;' width='30px'/>
 
 # Flash
 
