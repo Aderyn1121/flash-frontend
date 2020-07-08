@@ -1,4 +1,5 @@
-# Flash ![Logo](./src/assets/camera.png)
+<img src='./src/assets/camera.png' align='right' width='60px'
+# Flash
 
 ## Flash, a photography-focused storefront!
 
