@@ -1,4 +1,4 @@
-# <img src='./src/assets/camera.png' width='30px'/> Flash
+# __<img src='./src/assets/camera.png' width='30px'/> Flash__
 
 ## Flash, a photography-focused storefront!
 
