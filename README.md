@@ -1,4 +1,4 @@
-<img src='./src/assets/camera.png' align='right' width='60px'
+<img src='./src/assets/camera.png' align='right' width='30px'/>
 # Flash
 
 ## Flash, a photography-focused storefront!
