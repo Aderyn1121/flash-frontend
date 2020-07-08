@@ -16,25 +16,30 @@
     margin-right: auto;
     margin-left: 20px;
     font-size: 20px;
+    position: relative;
+    bottom: 10px;
+    font-weight: 600;
 }
-
 
 .logo {
     display: inline-block;
     width: 30px;
     margin: 10px 0px 0px 10px;
+    position: relative;
+    top: 5px;
 }
 
 .nav__search--icon {
     position: relative;
     top: 6px;
+    left: 33px;
 }
 
 .nav__search {
     margin-right: auto;
     border: 1px solid black;
-    padding: 5px 0px 5px 0px;
-    border: 1px solid #efefef;
+    padding: 7px 0px 7px 40px;
+    border: 1px solid #e6e6e6;
 }
 
 .nav__account {
@@ -52,6 +57,8 @@
     font-weight: 600;
     padding: 10px 0px 5px 5px;
     margin-left: 5px;
+    height: 50px;
+    margin-top: 150px;
 }
 
 .form__container {
@@ -59,9 +66,12 @@
 }
 
 .form__input {
-    padding: 15px 0px 15px 0px;
+    padding: 15px 0px 15px 10px;
     font-size: 18px;
     margin-left: 5px;
+    border: 1px solid black;
+    width: 90%;
+    margin-bottom: 8px;
 }
 
 .form__button {
@@ -91,7 +101,10 @@
     margin: 0 auto;
     padding: 15px 0px 15px 5px;
     font-size: 18px;
+    border: 1px solid black;   
 }
+
+/* first name and last name border box and resizing needs to be done*/
 
 .form__input--lastname {
     display: inline-block;
@@ -99,6 +112,7 @@
     right: 40px;
     padding: 15px 0px 15px 0px;
     font-size: 18px;
+    border: 1px solid black;
 }
 
 .signupform__button {
