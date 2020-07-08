@@ -13,13 +13,13 @@ const Cart = (props) => {
 
   let total = 0;
 
-  for (let item in cart) {
+  for (let item of cart) {
     total += item.price;
   }
 
   return (
     <>
-      <Modal />
+      <Modal total={total} />
       <Navigation />
       <CategoryBar />
       <main className="cart__main">
