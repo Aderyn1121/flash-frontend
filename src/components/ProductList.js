@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Navigation from "./Navigation";
 import CategoryBar from "./CategoryBar";
