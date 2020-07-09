@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
+import { fetchProducts } from "./actions/productActions";
 import MainPage from "./components/MainPage";
 import ProductPage from './components/ProductPage';
 import Cart from './components/Cart';
 import ProductList from './components/ProductList';
 
+
 const App = props => {
+    useEffect(() => {
+        (async () => {
+            await props.fetchProducts();
+        })();
+    });
+
     return (
         <BrowserRouter>
             <Route exact path="/" component={MainPage} />
@@ -19,4 +28,15 @@ const App = props => {
 }
 
 
-export default App;
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchProducts: () => dispatch(fetchProducts())
+    }
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(
+    App
+);
