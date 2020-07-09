@@ -6,17 +6,17 @@ export const REMOVE_TOKEN = "flash/authentication/REMOVE_TOKEN";
 
 const removeToken = () => ({ type: REMOVE_TOKEN });
 const setToken = (payload) => {
-  return { type: SET_TOKEN, payload };
+    return { type: SET_TOKEN, payload };
 };
 
 export const loadToken = () => (dispatch) => {
-  const token = window.localStorage.getItem(TOKEN_KEY);
-  const user = window.localStorage.getItem("flash/authentication/USER_ID");
-  const firstName = window.localStorage.getItem("flash/authentication/firstName");
-  const lastName = window.localStorage.getItem("flash/authentication/lastName");
-  if (token) {
-    dispatch(setToken({ token, user, firstName, lastName }));
-  }
+    const token = window.localStorage.getItem(TOKEN_KEY);
+    const user = window.localStorage.getItem("flash/authentication/USER_ID");
+    const firstName = window.localStorage.getItem("flash/authentication/firstName");
+    const lastName = window.localStorage.getItem("flash/authentication/lastName");
+    if (token) {
+        dispatch(setToken({ token, user, firstName, lastName }));
+    }
 };
 
 export const createUser = (firstName, lastName, email, password) => async dispatch => {
@@ -54,10 +54,10 @@ export const login = (email, password) => async dispatch => {
 };
 
 export const logout = () => (dispatch) => {
-  window.localStorage.removeItem(TOKEN_KEY);
-  window.localStorage.removeItem("flash/authentication/USER_ID");
-  window.localStorage.removeItem("flash/authentication/firstName");
-  window.localStorage.removeItem("flash/authentication/lastName");
-  dispatch(removeToken());
-  window.location.href = "/";
+    window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem("flash/authentication/USER_ID");
+    window.localStorage.removeItem("flash/authentication/firstName");
+    window.localStorage.removeItem("flash/authentication/lastName");
+    dispatch(removeToken());
+    window.location.href = "/";
 };
