@@ -45,12 +45,13 @@ const ProductList = (props) => {
       <Navigation />
       <CategoryBar />
       <div className="category__list">
+        <h1>Products</h1>
       {/* list.map((product, i) */}
         {products.map((product, i) => {
           let id = i;
           return (
             <div key={id} className="category__list-product" key={i}>
-              <div className="category__list-product-img"><img className="product__item--img" src={product.imgUrl} alt="featured-item" /></div>
+              <div className="category__list-product-img"><img className="product__item--img" src={product.imgUrl} /></div>
               <div className="category__list-nameprice-container">
                 <div className="category__list-product-name">
                   {product.name}
@@ -58,6 +59,8 @@ const ProductList = (props) => {
                 <div className="category__list-product-price">
                   ${(product.price/100.00).toFixed(2)}
                 </div>
+                <div className="category__list-product-description">
+                  {product.description} </div>
               </div>
             </div>
           );
