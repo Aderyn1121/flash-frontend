@@ -20,7 +20,7 @@ export const loadToken = () => dispatch => {
 };
 
 export const createUser = (firstName, lastName, email, password) => async dispatch => {
-    const response = await fetch(`${baseUrl}/api/users/`, {
+    const response = await fetch(`${baseUrl}/api/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, lastName, email, password }),
@@ -28,10 +28,10 @@ export const createUser = (firstName, lastName, email, password) => async dispat
 
     if (response.ok) {
         const payload = await response.json();
-        window.localStorage.setItem(TOKEN_KEY, payload.token);
-        window.localStorage.setItem("flash/authentication/USER_ID", payload.user);
-        window.localStorage.setItem("flash/authentication/firstName", payload.firstName);
-        window.localStorage.setItem("flash/authentication/lastName", payload.lastName);
+        window.localStorage.setItem(TOKEN_KEY, payload.access_token);
+        window.localStorage.setItem("flash/authentication/USER_ID", payload.user.id);
+        window.localStorage.setItem("flash/authentication/firstName", payload.user.firstName);
+        window.localStorage.setItem("flash/authentication/lastName", payload.user.lastName);
         dispatch(setToken(payload));
     }
 }
