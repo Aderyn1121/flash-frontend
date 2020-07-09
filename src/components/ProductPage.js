@@ -9,7 +9,7 @@ import { fetchReviews } from "../actions/reviewActions";
 const ProductPage = (props) => {
   let id = Number(props.match.params.productId);
 
-  console.log(id);
+  
 
   useEffect(() => {
     (async () => {

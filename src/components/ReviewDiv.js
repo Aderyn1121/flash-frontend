@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { fetchReviews } from "../actions/reviewActions";
+import {baseUrl} from '../config'
 
 const ReviewDiv = (props) => {
   let reviews = {};
-
   let newReviews = [];
+
+  let [userRev, createRev] = useState('');
 
   if (props.reviews !== undefined) {
     reviews = props.reviews;
@@ -18,21 +20,60 @@ const ReviewDiv = (props) => {
 
   }
 
-  console.log(newReviews)
+  const handleReview = (e) => {
+    createRev(e.target.value)
+  }
+
+  const handleSubmit = async (e) => {
+    
+    e.preventDefault()
+
+     let userId = props.sessionId
+     let firstName = props.firstName
+     let lastName = props.lastName
+     let productId = props.id
+     let reviewBody = userRev
+    
+
+    const res = await fetch(`${baseUrl}/api/reviews/${props.id}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({userId, firstName, lastName, productId, reviewBody})
+    })
+
+    console.log(res)
+  }
+
+
+  if(newReviews.length === 0 && !props.firstName) return null;
 
   if(newReviews.length === 0) return(
     <div className="products__review-container">
       <form className="products__review-form">
       {/* onSubmit = this.postReview function */}
       <textarea
+        onChange={handleReview}
         className="products__review-field"
         type="text"
         placeholder="Submit a review"
       ></textarea>
-      <button className="products__review-submit">Submit</button>
+      <button onClick={handleSubmit} className="products__review-submit">Submit</button>
     </form>
   </div>
   )
+
+  if(!props.firstName && newReviews.length > 0) return(
+    <div className="products__review-container">
+      {newReviews.map((review, i) => {
+        return (
+          <div key={i} className="products__review-block">
+            <div className="products__review-author">{`${review.firstName} ${review.lastName}`}</div>
+            <div className="products__review-content">{review.reviewBody}</div>
+          </div>
+        );
+      })}
+    </div>
+  ) 
 
 
   return (
@@ -49,11 +90,12 @@ const ReviewDiv = (props) => {
       <form className="products__review-form">
         {/* onSubmit = this.postReview function */}
         <textarea
+          onChange={handleReview}
           className="products__review-field"
           type="text"
           placeholder="Submit a review"
         ></textarea>
-        <button className="products__review-submit">Submit</button>
+        <button onClick={handleSubmit} className="products__review-submit">Submit</button>
       </form>
     </div>
   );
@@ -68,6 +110,9 @@ const ReviewDiv = (props) => {
 const mapStateToProps = (state) => {
   return {
     reviews: state.reviews,
+    sessionId: state.session.id,
+    firstName: state.session.firstName,
+    lastName: state.session.lastName,
   };
 };
 
