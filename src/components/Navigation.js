@@ -9,36 +9,6 @@ import { openModal } from "../actions/modalActions";
 const Navigation = (props) => {
   const token = props.token;
 
-<<<<<<< HEAD
-    if (!token) {
-        return (
-            <div className="nav__bar">
-                <Link to="/" className="nav__logo">FLASH<img className="logo" src={require("../assets/camera.png")} alt="logo" /></Link>
-                <form>
-                    <SearchIcon className="nav__search--icon" />
-                    <input className="nav__search" type="text" placeholder="Search for an item"></input>
-                </form>
-                <button className="nav__item nav__account">Account</button>
-                <button className="nav__item" onClick={() => props.openModal("signin")}>Sign In</button>
-                <button className="nav__item" onClick={() => props.openModal("signup")}>Sign Up</button>
-                <Link to='/cart' className="nav__item">View Cart</Link>
-            </div>
-        );
-    } else {
-        return (
-            <div className="nav__bar">
-                <Link to="/" className="nav__logo">FLASH</Link>
-                <form>
-                    <input className="nav__search" type="text" placeholder="Search for an item" />
-                </form>
-                <button className="nav__item nav__account">Account</button>
-                <button className="nav__item" onClick={() => props.logout()}>Sign Out</button>
-                <Link to='/cart' className="nav__item">View Cart</Link>
-            </div>
-        )
-    }
-}
-=======
   if (!token) {
     return (
       <div className="nav__bar">
@@ -94,7 +64,6 @@ const Navigation = (props) => {
     );
   }
 };
->>>>>>> 69371a641468868b79f4a55a29fd9ffd093a8c98
 
 const mapStateToProps = (state) => {
   return {
