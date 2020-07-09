@@ -12,7 +12,7 @@ const ProductList = (props) => {
     { name: "camera", price: 100 },
     { name: "bag", price: 50 },
   ];
-
+  
   // let canon = [
   //   props.products[0],
   //   props.products[1],
@@ -32,8 +32,9 @@ const ProductList = (props) => {
   //   props.products[86],
   // ]
 
-  // console.log(props.products)
-
+  
+  let products = props.products
+  console.log(products)
   // console.log(canon)
   //List will have an if switch to work off of props.category or props.brand?
   
@@ -44,17 +45,18 @@ const ProductList = (props) => {
       <Navigation />
       <CategoryBar />
       <div className="category__list">
-        {list.map((product, i) => {
+      {/* list.map((product, i) */}
+        {products.map((product, i) => {
           let id = i;
           return (
             <div key={id} className="category__list-product" key={i}>
-              <div className="category__list-product-img">Image</div>
+              <div className="category__list-product-img"><img className="product__item--img" src={product.imgUrl} alt="featured-item" /></div>
               <div className="category__list-nameprice-container">
                 <div className="category__list-product-name">
                   {product.name}
                 </div>
                 <div className="category__list-product-price">
-                  ${product.price}
+                  ${(product.price/100.00).toFixed(2)}
                 </div>
               </div>
             </div>
@@ -65,17 +67,17 @@ const ProductList = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     products: Object.values(state.products),
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    products: Object.values(state.products),
+  };
+};
 
 
-// export default connect(
-//   mapStateToProps
-// )(
-//   ProductList
-// );
+export default connect(
+  mapStateToProps
+)(
+  ProductList
+);
 
-export default ProductList;
+// export default ProductList;
