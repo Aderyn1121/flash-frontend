@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
+import { loadToken } from "./actions/sessionActions";
 import { fetchProducts } from "./actions/productActions";
 import MainPage from "./components/MainPage";
 import ProductPage from './components/ProductPage';
@@ -10,6 +11,10 @@ import ProductList from './components/ProductList';
 
 
 const App = props => {
+    useEffect(() => {
+        props.loadToken();
+    });
+
     useEffect(() => {
         (async () => {
             await props.fetchProducts();
@@ -27,9 +32,9 @@ const App = props => {
 
 }
 
-
 const mapDispatchToProps = dispatch => {
     return {
+        loadToken: () => dispatch(loadToken()),
         fetchProducts: () => dispatch(fetchProducts())
     }
 }
