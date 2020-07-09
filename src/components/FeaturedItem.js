@@ -57,12 +57,12 @@ const FeaturedItem = (props) => {
     // console.log(props.products)
 
     
-    // Page needs to be styled to show picture, name and price
+    // Name can be a linked to product page
     return (
         <Carousel className="featured__carousel" responsive={responsive} infinite>
             <div className="featured__item"><img className="featured__item--img" src={product1.imgUrl} alt="featured-item" /> 
                                             <div className="featured__item--name">Canon E0S 6D Mark II</div>
-                                            <div>${(product1.price/100.00).toFixed(2)}</div>
+                                            <div className="featured__item--price">${(product1.price/100.00).toFixed(2)}</div>
             </div>
             <div className="featured__item"><img className="featured__item--img" src={product2.imgUrl} alt="featured-item" /> 
                                             <div className="featured__item--name">Nikon D850 DSLR Body</div>
@@ -99,7 +99,8 @@ const FeaturedItem = (props) => {
 
 const mapStateToProps = state => {
     return {
-        products: Object.values(state.product)
+        // products: state.session.products
+        products: Object.values(state.products)
     }
 }
 

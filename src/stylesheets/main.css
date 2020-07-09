@@ -31,3 +31,20 @@
     margin-left: 10px;
 }
 
+.featured__item--img{
+    height: 70%;
+    width: 70%;
+    padding: 2px;
+}
+
+.featured__item--name {
+    color: #0066CC;
+
+}
+
+.featured__item--price {
+    font-size: small;
+    padding: 2px;
+}
+
+/* need to push css up */

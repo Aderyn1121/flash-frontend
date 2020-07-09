@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     background-color: #004387;
-    margin-top: -85px;
+    margin-top: -95px;
     position: fixed;
     z-index: 4;
     width: 100%;
@@ -48,4 +48,5 @@
     color: #004387;
     font-weight: 600;
 }
+
 
