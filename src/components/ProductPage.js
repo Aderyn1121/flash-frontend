@@ -4,21 +4,24 @@ import ReviewDiv from "./ReviewDiv";
 import Modal from "./Modal";
 import Navigation from "./Navigation";
 import CategoryBar from "./CategoryBar";
+import { fetchReviews } from "../actions/reviewActions";
 
 const ProductPage = (props) => {
-  console.log(props);
-
   let id = Number(props.match.params.productId);
+
+  console.log(id);
+
+  useEffect(() => {
+    (async () => {
+      await props.fetchReviews(id);
+    })();
+  });
 
   let product = props.products[id];
 
-  console.log(product);
-
   if (!product) return null;
 
-  let { brand, category, description, imgUrl, name, price } = props.products[
-    id
-  ];
+  let { description, imgUrl, name, price } = props.products[id];
 
   return (
     <>
@@ -36,11 +39,16 @@ const ProductPage = (props) => {
           </div>
         </div>
 
-        <div className="products__desc">{description}</div>
+        <div className="products__desc">
+          <br></br>
+          <p>Details</p>
+          <br></br>
+          <p>{description}</p>
+        </div>
 
         <div className="products__review-header">Reviews</div>
 
-        <ReviewDiv productID={id} />
+        <ReviewDiv id={id} />
       </main>
     </>
   );
@@ -48,14 +56,14 @@ const ProductPage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.product,
+    products: state.products,
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchReviews: (id) => dispatch(fetchReviews(id)),
+  };
+};
 
-//   }
-// }
-
-export default connect(mapStateToProps, null)(ProductPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

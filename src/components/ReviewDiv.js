@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchReviews } from "../actions/reviewActions";
 
 const ReviewDiv = (props) => {
-  let list = [
-    { author: "Jane Doe", content: "I reviewed this!" },
-    { author: "Jane Doe", content: "I reviewed this twice!" },
-  ];
+  let newReviews = [];
+
+  if (props.reviews !== undefined) {
+    let reviews = props.reviews;
+    for (let review in reviews) {
+      newReviews.push(review);
+      console.log(newReviews);
+    }
+  }
 
   return (
     <div className="products__review-container">
-      {list.map((review, i) => {
+      {newReviews.map((review, i) => {
         return (
           <div key={i} className="products__review-block">
-            <div className="products__review-author">{review.author}</div>
+            <div className="products__review-author">Anonymous</div>
             <div className="products__review-content">{review.content}</div>
           </div>
         );
@@ -36,4 +43,16 @@ const ReviewDiv = (props) => {
 
 //Todo, possible Edit/Delete functions
 
-export default ReviewDiv;
+const mapStateToProps = (state) => {
+  return {
+    reviews: state.reviews,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchReviews: () => dispatch(fetchReviews()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewDiv);

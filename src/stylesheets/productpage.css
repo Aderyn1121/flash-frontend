@@ -12,7 +12,7 @@
 
 .products__img {
   text-align: left;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 300px;
   width: 300px;
 }
@@ -20,6 +20,7 @@
 .products__desc {
   margin-top: 20px;
   margin-left: 20%;
+  text-align: center;
 }
 
 .products__main .products__container-main {
