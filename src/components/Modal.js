@@ -20,7 +20,7 @@ const Modal = (props) => {
       component = <Signup type={"signup"} />;
       break;
     case "checkout":
-      component = <CheckOut total={props.total} type="checkout" />;
+      component = <CheckOut total={props.total} {...props} type="checkout" />;
       break;
     default:
       return null;

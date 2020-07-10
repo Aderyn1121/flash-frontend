@@ -1,11 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../actions/modalActions";
+import { baseUrl } from "../config";
+import { fetchTransaction } from "../actions/transactionActions";
 
 const CheckOut = (props) => {
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
     // await checkout / post to transactions
+    // if (props.products.length === 0) return null;
+
+    let userId = props.sessionId
+    let total = props.total
+    let products = props.products
+    
+    const res = await fetch(`${baseUrl}/api/transactions/${userId}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({products, userId, total})
+    })
+    
+    props.history.push('/profile')
     props.closeModal();
   };
 
@@ -25,10 +40,21 @@ const CheckOut = (props) => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+      // products: state.session.products
+      reviews: state.reviews,
+      sessionId: state.session.id,
+      firstName: state.session.firstName,
+      products: Object.values(state.products)
+  }
+}
+
+
 const mapDispatchToProps = (dispatch) => {
   return {
     closeModal: () => dispatch(closeModal()),
   };
 };
 
-export default connect(null, mapDispatchToProps)(CheckOut);
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOut);

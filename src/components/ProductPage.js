@@ -33,7 +33,8 @@ const ProductPage = (props) => {
           </div>
           <div className="products__container-inner">
             <div className="products__name">{name}</div>
-            <div className="products__price">{(price / 100).toFixed(2)}</div>
+            <div className="products__price">${(price / 100).toFixed(2)}</div>
+            {/* <div className="products__quanity"></div> */}
           </div>
         </div>
 
