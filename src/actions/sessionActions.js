@@ -49,7 +49,7 @@ export const login = (email, password) => async dispatch => {
         window.localStorage.setItem("flash/authentication/USER_ID", payload.user.id);
         window.localStorage.setItem("flash/authentication/firstName", payload.user.firstName);
         window.localStorage.setItem("flash/authentication/lastName", payload.user.lastName);
-        dispatch(setToken(payload));
+        dispatch(setToken({ token: payload.access_token, user: payload.user.id, firstName: payload.user.firstName, lastName: payload.user.lastName }));
     }
 };
 

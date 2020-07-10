@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { fetchReviews } from "../actions/reviewActions";
-import {baseUrl} from '../config'
+import { baseUrl } from '../config'
 
 const ReviewDiv = (props) => {
   let reviews = {};
   let newReviews = [];
-
   let [userRev, createRev] = useState('');
 
   if (props.reviews !== undefined) {
@@ -14,10 +13,7 @@ const ReviewDiv = (props) => {
 
     Object.values(reviews).forEach((item) => {
       newReviews.push(item)
-    })
-    
-    
-
+    });
   }
 
   const handleReview = (e) => {
@@ -25,44 +21,46 @@ const ReviewDiv = (props) => {
   }
 
   const handleSubmit = async (e) => {
-    
+
     e.preventDefault()
 
-     let userId = props.sessionId
-     let firstName = props.firstName
-     let lastName = props.lastName
-     let productId = props.id
-     let reviewBody = userRev
-    
+    let userId = props.sessionId
+    let firstName = props.firstName
+    let lastName = props.lastName
+    let productId = props.id
+    let reviewBody = userRev
+
 
     const res = await fetch(`${baseUrl}/api/reviews/${props.id}`, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({userId, firstName, lastName, productId, reviewBody})
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, firstName, lastName, productId, reviewBody })
     })
 
-    console.log(res)
+    await props.fetchReviews(props.id);
+    createRev('');
+
   }
 
 
-  if(newReviews.length === 0 && !props.firstName) return null;
+  if (newReviews.length === 0 && !props.firstName) return null;
 
-  if(newReviews.length === 0) return(
+  if (newReviews.length === 0) return (
     <div className="products__review-container">
       <form className="products__review-form">
-      {/* onSubmit = this.postReview function */}
-      <textarea
-        onChange={handleReview}
-        className="products__review-field"
-        type="text"
-        placeholder="Submit a review"
-      ></textarea>
-      <button onClick={handleSubmit} className="products__review-submit">Submit</button>
-    </form>
-  </div>
+        <textarea
+          onChange={handleReview}
+          className="products__review-field"
+          type="text"
+          placeholder="Submit a review"
+          value={userRev}
+        ></textarea>
+        <button onClick={handleSubmit} className="products__review-submit">Submit</button>
+      </form>
+    </div>
   )
 
-  if(!props.firstName && newReviews.length > 0) return(
+  if (!props.firstName && newReviews.length > 0) return (
     <div className="products__review-container">
       {newReviews.map((review, i) => {
         return (
@@ -73,7 +71,7 @@ const ReviewDiv = (props) => {
         );
       })}
     </div>
-  ) 
+  )
 
 
   return (
@@ -88,12 +86,12 @@ const ReviewDiv = (props) => {
       })}
 
       <form className="products__review-form">
-        {/* onSubmit = this.postReview function */}
         <textarea
           onChange={handleReview}
           className="products__review-field"
           type="text"
           placeholder="Submit a review"
+          value={userRev}
         ></textarea>
         <button onClick={handleSubmit} className="products__review-submit">Submit</button>
       </form>
@@ -101,11 +99,6 @@ const ReviewDiv = (props) => {
   );
 };
 
-//Todo - get data from backend, set to this.state.reviews
-
-//todo Post review function
-
-//Todo, possible Edit/Delete functions
 
 const mapStateToProps = (state) => {
   return {
@@ -118,7 +111,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchReviews: () => dispatch(fetchReviews()),
+    fetchReviews: (id) => dispatch(fetchReviews(id)),
   };
 };
 
