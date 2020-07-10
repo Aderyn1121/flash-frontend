@@ -19,7 +19,7 @@ const Cart = (props) => {
 
   return (
     <>
-      <Modal total={total} />
+      <Modal total={total} {...props} />
       <Navigation />
       <CategoryBar />
       <main className="cart__main">
