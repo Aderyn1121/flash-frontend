@@ -6,11 +6,11 @@ export const GET_TRANSACTION = "flash/transaction/GET_TRANSACTION";
 const makeTransaction = () => ({ type: CREATE_TRANSACTION });
 const getTransaction = (transactions) => ({ type: GET_TRANSACTION, transactions });
 
-export const createTransaction = (userId, products) => async (dispatch) => {
+export const createTransaction = (userId, products, total) => async (dispatch) => {
     const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, products })
+        body: JSON.stringify({ userId, products, total })
     };
 
     const response = await fetch(`${baseUrl}/api/transactions`, options);

@@ -10,6 +10,8 @@ import { openModal } from "../actions/modalActions";
 const Navigation = (props) => {
     const token = props.token;
 
+
+
     if (!token) {
         return (
             <div className="nav__bar">

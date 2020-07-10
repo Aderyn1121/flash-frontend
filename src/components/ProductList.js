@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
 import CategoryBar from "./CategoryBar";
 import { Modal } from "@material-ui/core";
@@ -26,9 +27,9 @@ const ProductList = (props) => {
                     {matchedProducts.map((product, i) => {
                         return (
                             <div className="category__list-product" key={i}>
-                                <a className="category__list-product-img" href={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></a>
+                                <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
                                 <div className="category__list-nameprice-container">
-                                    <a className="category__list-product-name" href={`/products/${product.id}`}>{product.name}</a>
+                                    <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
                                     <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
                                 </div>
                             </div>
@@ -56,9 +57,9 @@ const ProductList = (props) => {
                     {matchedProducts.map((product, i) => {
                         return (
                             <div className="category__list-product" key={i}>
-                                <a className="category__list-product-img" href={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></a>
+                                <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
                                 <div className="category__list-nameprice-container">
-                                    <a className="category__list-product-name" href={`/products/${product.id}`}>{product.name}</a>
+                                    <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
                                     <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
                                 </div>
                             </div>
