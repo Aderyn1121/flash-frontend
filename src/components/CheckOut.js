@@ -23,7 +23,7 @@ const CheckOut = (props) => {
         <div onClick={handleBackgroundClick} className="checkout__bg">
             <div className="checkout__main">
                 <div className="checkout__total-container">
-                    <div className="checkout__total-name">Total</div>
+                    <div className="checkout__total-name">Total:</div>
                     <div className="checkout__total-num">${(props.total / 100).toFixed(2)}</div>
                 </div>
                 <div className="checkout__payment">Payment Type: Card</div>
