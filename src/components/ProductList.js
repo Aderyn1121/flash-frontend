@@ -7,7 +7,7 @@ import { Modal } from "@material-ui/core";
 const ProductList = (props) => {
   //This is going to pull an array of product objects
   //where Brand or Category = X
-  if (props.products.length === 0) return null;
+
   let list = [
     { name: "camera", price: 100 },
     { name: "bag", price: 50 },
@@ -31,13 +31,15 @@ const ProductList = (props) => {
   //   props.products[85],
   //   props.products[86],
   // ]
-
+  if (props.products.length === 0) return null;
   
   let products = props.products
-  console.log(products)
+  console.log(products);
+  // products.map(product => console.log(product.brand));
   // console.log(canon)
   //List will have an if switch to work off of props.category or props.brand?
-  
+  let category = (props.match.params.category);
+  console.log(category);
 
   return (
     <>
@@ -59,8 +61,8 @@ const ProductList = (props) => {
                 <div className="category__list-product-price">
                   ${(product.price/100.00).toFixed(2)}
                 </div>
-                <div className="category__list-product-description">
-                  {product.description} </div>
+                {/* <div className="category__list-product-description">
+                  {product.description}</div> */}
               </div>
             </div>
           );
