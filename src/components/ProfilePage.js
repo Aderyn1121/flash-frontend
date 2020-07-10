@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-
+import CategoryBar from './CategoryBar'
 import Navigation from "./Navigation";
 import ProfileDetails from "./ProfileDetails";
 import { fetchTransaction } from "../actions/transactionActions";
@@ -18,6 +18,7 @@ const ProfilePage = props => {
     return (
         <>
             <Navigation />
+            <CategoryBar />
             <ProfileDetails {...props} />
         </>
     );
