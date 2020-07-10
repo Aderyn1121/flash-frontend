@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import SearchIcon from "@material-ui/icons/Search";
 
 import MainSearch from "./Mainsearch";
 import { logout } from "../actions/sessionActions";
@@ -9,8 +8,6 @@ import { openModal } from "../actions/modalActions";
 
 const Navigation = (props) => {
     const token = props.token;
-
-
 
     if (!token) {
         return (

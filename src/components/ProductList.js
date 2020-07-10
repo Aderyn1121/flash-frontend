@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
 import CategoryBar from "./CategoryBar";
-import { Modal } from "@material-ui/core";
+import Modal from "./Modal";
 
 const ProductList = (props) => {
     if (props.products.length === 0) return null;
@@ -11,7 +11,6 @@ const ProductList = (props) => {
     let products = props.products
     let category = (props.match.params.categoryId);
 
-    // console.log(typeof (category));
     if (typeof (category) === "string" && category.length > 2) {
         const matchedProducts = products.filter(product => {
             return product.brand === (category.slice(0, 1).toUpperCase() + category.slice(1));
