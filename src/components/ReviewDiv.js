@@ -79,7 +79,7 @@ const ReviewDiv = (props) => {
       {newReviews.map((review, i) => {
         return (
           <div key={i} className="products__review-block">
-            <div className="products__review-author">{`${review.firstName} ${review.lastName}`}</div>
+            <div className="products__review-author">{`${review.firstName} ${review.lastName}`}:</div>
             <div className="products__review-content">{review.reviewBody}</div>
           </div>
         );

@@ -35,7 +35,7 @@ const ProfileDetails = props => {
                                     </>
                                 );
                             })}
-                            <div className="profile__transaction--price">${(transactions[i].total / 100).toFixed(2)}</div>
+                            <div className="profile__transaction--price">Total: ${(transactions[i].total / 100).toFixed(2)}</div>
                         </div>
                     )
                 })}
