@@ -17,8 +17,7 @@ const Navigation = (props) => {
                     <SearchIcon className="nav__search--icon" />
                     <input className="nav__search" type="text" placeholder="Search for an item"></input>
                 </form>
-                <Link to="/profile" className="nav__item nav__account">Account</Link>
-                <button className="nav__item" onClick={() => props.openModal("signin")}>Sign In</button>
+                <button className="nav__item nav__signin" onClick={() => props.openModal("signin")}>Sign In</button>
                 <button className="nav__item" onClick={() => props.openModal("signup")}>Sign Up</button>
                 <Link to="/cart" className="nav__item">View Cart</Link>
             </div>
@@ -28,6 +27,7 @@ const Navigation = (props) => {
             <div className="nav__bar">
                 <Link to="/" className="nav__logo">FLASH<img className="logo" src={require("../assets/camera.png")} alt="logo" /></Link>
                 <form>
+                    <SearchIcon className="nav__search--icon" />
                     <input className="nav__search" type="text" placeholder="Search for an item" />
                 </form>
                 <Link to="/profile" className="nav__item nav__account">Account</Link>

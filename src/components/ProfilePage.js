@@ -12,7 +12,7 @@ const ProfilePage = props => {
         (async () => {
             await props.fetchTransaction(userId);
         })();
-    }, [userId]);
+    });
 
 
     return (

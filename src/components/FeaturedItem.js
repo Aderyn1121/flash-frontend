@@ -29,12 +29,16 @@ const FeaturedItem = (props) => {
             items: 4
         },
         tablet: {
-            breakpoint: { max: 750, min: 464 },
+            breakpoint: { max: 750, min: 650 },
             items: 3
+        },
+        largerMobile: {
+            breakpoint: { max: 650, min: 464 },
+            items: 2
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 3
+            items: 2
         }
     };
 
@@ -56,42 +60,42 @@ const FeaturedItem = (props) => {
 
     // console.log(props.products)
 
-    
+
     // Name can be a linked to product page
     return (
         <Carousel className="featured__carousel" responsive={responsive} infinite>
-            <div className="featured__item"><img className="featured__item--img" src={product1.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product1.name}</div>
-                                            <div className="featured__item--price">${(product1.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product2.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product2.name}</div>
-                                            <div className="featured__item--price">${(product2.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product3.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product3.name}</div>
-                                            <div className="featured__item--price">${(product3.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product4.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product4.name}</div>
-                                            <div className="featured__item--price">${(product4.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product5.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product5.name}</div>
-                                            <div className="featured__item--price">${(product5.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product6.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product6.name}</div>
-                                            <div className="featured__item--price">${(product6.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product7.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product7.name}</div>
-                                            <div className="featured__item--price">${(product7.price/100.00).toFixed(2)}</div>
-            </div>
-            <div className="featured__item"><img className="featured__item--img" src={product8.imgUrl} alt="featured-item" /> 
-                                            <div className="featured__item--name">{product8.name}</div>
-                                            <div className="featured__item--price">${(product8.price/100.00).toFixed(2)}</div>
-            </div>
+            <a className="featured__item" href={`/products/${product1.id}`}><img className="featured__item--img" src={product1.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product1.name}</div>
+                <div className="featured__item--price">${(product1.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product2.id}`}><img className="featured__item--img" src={product2.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product2.name}</div>
+                <div className="featured__item--price">${(product2.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product3.id}`}><img className="featured__item--img" src={product3.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product3.name}</div>
+                <div className="featured__item--price">${(product3.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product4.id}`}><img className="featured__item--img" src={product4.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product4.name}</div>
+                <div className="featured__item--price">${(product4.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product5.id}`}><img className="featured__item--img" src={product5.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product5.name}</div>
+                <div className="featured__item--price">${(product5.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product6.id}`}><img className="featured__item--img" src={product6.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product6.name}</div>
+                <div className="featured__item--price">${(product6.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product7.id}`}><img className="featured__item--img" src={product7.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product7.name}</div>
+                <div className="featured__item--price">${(product7.price / 100.00).toFixed(2)}</div>
+            </a>
+            <a className="featured__item" href={`/products/${product8.id}`}><img className="featured__item--img" src={product8.imgUrl} alt="featured-item" />
+                <div className="featured__item--name">{product8.name}</div>
+                <div className="featured__item--price">${(product8.price / 100.00).toFixed(2)}</div>
+            </a>
         </Carousel >
     );
 }

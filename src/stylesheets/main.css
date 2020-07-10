@@ -32,8 +32,9 @@
 }
 
 .featured__item--img{
-    height: 60%;
-    width: 60%;
+    /* height: 60%; */
+    /* width: 60%; */
+    width: 150px;
     padding: 2px;
 }
 
