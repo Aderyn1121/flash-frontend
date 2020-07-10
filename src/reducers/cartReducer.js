@@ -1,5 +1,5 @@
 import {ADD_TO_CART, REMOVE_FROM_CART} from '../actions/cartButtonActions'
-import { act } from 'react-dom/test-utils';
+
 
 const cartReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -11,14 +11,17 @@ const cartReducer = (state = {}, action) => {
         
         case REMOVE_FROM_CART:
             for( let i = 0; i < newState.cart.length; i++){
-                if (newState.cart[i].id === action.id){
+                if (newState.cart[i].id === action.productId){
                     newState.cart.splice(i, 1)
                     break;
                 }
             }
-            return newState
+            return newState;
         
         default:
             return state;
     }
 }
+
+
+export default cartReducer 
