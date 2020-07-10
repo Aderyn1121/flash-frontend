@@ -24,7 +24,7 @@ const ProductPage = (props) => {
   return (
     <>
       <Modal />
-      <Navigation />
+      <Navigation {...props} />
       <CategoryBar />
       <main className="products__main">
         <div className="products__container-main">

@@ -11,8 +11,8 @@ import Footer from "./Footer";
 const MainPage = props => {
     return (
         <>
-            <Modal  {...props}/>
-            <Navigation />
+            <Modal />
+            <Navigation {...props} />
             <CategoryBar />
             <MainCarousel />
             <FeaturedItem />
