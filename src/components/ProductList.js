@@ -5,79 +5,80 @@ import CategoryBar from "./CategoryBar";
 import { Modal } from "@material-ui/core";
 
 const ProductList = (props) => {
-  //This is going to pull an array of product objects
-  //where Brand or Category = X
-  if (props.products.length === 0) return null;
-  let list = [
-    { name: "camera", price: 100 },
-    { name: "bag", price: 50 },
-  ];
-  
-  // let canon = [
-  //   props.products[0],
-  //   props.products[1],
-  //   props.products[2],
-  //   props.products[22],
-  //   props.products[23],
-  //   props.products[24],
-  //   props.products[25],
-  //   props.products[26],
-  //   props.products[27],
-  //   props.products[49],
-  //   props.products[50],
-  //   props.products[51],
-  //   props.products[71],
-  //   props.products[75],
-  //   props.products[85],
-  //   props.products[86],
-  // ]
+    if (props.products.length === 0) return null;
 
-  
-  let products = props.products
-  console.log(products)
-  // console.log(canon)
-  //List will have an if switch to work off of props.category or props.brand?
-  
+    let products = props.products
+    let category = (props.match.params.categoryId);
 
-  return (
-    <>
-      <Modal />
-      <Navigation />
-      <CategoryBar />
-      <div className="category__list">
-      {/* list.map((product, i) */}
-        {products.map((product, i) => {
-          let id = i;
-          return (
-            <div key={id} className="category__list-product" key={i}>
-              <div className="category__list-product-img"><img className="product__item--img" src={product.imgUrl} alt="featured-item" /></div>
-              <div className="category__list-nameprice-container">
-                <div className="category__list-product-name">
-                  {product.name}
+    // console.log(typeof (category));
+    if (typeof (category) === "string" && category.length > 2) {
+        const matchedProducts = products.filter(product => {
+            return product.brand === (category.slice(0, 1).toUpperCase() + category.slice(1));
+        })
+
+        return (
+            <>
+                <Modal />
+                <Navigation />
+                <CategoryBar />
+                <div className="category__list">
+                    <div>{(category.slice(0, 1).toUpperCase() + category.slice(1))}</div>
+                    {matchedProducts.map((product, i) => {
+                        return (
+                            <div className="category__list-product" key={i}>
+                                <a className="category__list-product-img" href={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></a>
+                                <div className="category__list-nameprice-container">
+                                    <a className="category__list-product-name" href={`/products/${product.id}`}>{product.name}</a>
+                                    <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
-                <div className="category__list-product-price">
-                  ${(product.price/100.00).toFixed(2)}
+            </>
+        );
+    }
+
+    const productsArray = ["DSLR and SLR Cameras", "Mirrorless Cameras", "Range Finder Cameras", "DSLR Lens", "Mirrorless Lens", "Range Finder Lens", "Flashes & On-Camera Lighting", "Studio Lighting", "Bags", "Cases", "Camera Batteries", "Tripods", "Misc"];
+    if (typeof (parseInt(category, 10)) === "number") {
+        const matchedProducts = products.filter(product => {
+            return product.category === (parseInt(category, 10));
+        })
+
+        return (
+            <>
+                <Modal />
+                <Navigation />
+                <CategoryBar />
+                <div className="category__list">
+                    <div>{productsArray[parseInt(category, 10) + 1]}</div>
+                    <h1>Products</h1>
+                    {matchedProducts.map((product, i) => {
+                        return (
+                            <div className="category__list-product" key={i}>
+                                <a className="category__list-product-img" href={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></a>
+                                <div className="category__list-nameprice-container">
+                                    <a className="category__list-product-name" href={`/products/${product.id}`}>{product.name}</a>
+                                    <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </>
-  );
+            </>
+        );
+    }
 };
 
 const mapStateToProps = (state) => {
-  return {
-    products: Object.values(state.products),
-  };
+    return {
+        products: Object.values(state.products),
+    };
 };
 
 
 export default connect(
-  mapStateToProps
+    mapStateToProps
 )(
-  ProductList
+    ProductList
 );
-
-// export default ProductList;

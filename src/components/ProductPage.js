@@ -9,8 +9,6 @@ import { fetchReviews } from "../actions/reviewActions";
 const ProductPage = (props) => {
   let id = Number(props.match.params.productId);
 
-  
-
   useEffect(() => {
     (async () => {
       await props.fetchReviews(id);

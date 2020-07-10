@@ -46,6 +46,11 @@
     margin-left: auto;
 }
 
+.nav__signin {
+    margin-left: auto;
+    padding-left: 13px;
+}
+
 .nav__item {
     margin-right: 20px;
 }
