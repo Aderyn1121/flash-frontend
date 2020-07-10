@@ -40,25 +40,27 @@ const ProductPage = (props) => {
                     <div className="products__container-inner">
                         <div className="products__name">{name}</div>
                         <div className="products__price">${(price / 100).toFixed(2)}</div>
+                    
+                      <form className="products__cart--container" onSubmit={handleSubmit}>
+                          <label className="products__label">Quantity:
+                              <input className="products__quantity" type="number" placeholder="1" />
+                          </label>
+                          <button className="products__cart">Add to Cart</button>
+                      </form>
                     </div>
-                    <form className="products__cart--container" onSubmit={handleSubmit}>
-                        <label>Quantity:
-                            <input className="products__quantity" type="number" placeholder="1" />
-                        </label>
-                        <button className="products__cart">Add to Cart</button>
-                    </form>
                 </div>
 
                 <div className="products__desc">
                     <br></br>
-                    <p className='details-header'>Details</p>
+                    <p className='details-header'>Details:</p>
                     <br></br>
                     <p>{description}</p>
                 </div>
 
-                <div className="products__review-header">Reviews</div>
+                <div className="products__review-header">Reviews:</div>
 
                 <ReviewDiv id={id} />
+                
             </main>
         </>
     );
