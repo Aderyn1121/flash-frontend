@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import { loadToken } from "./actions/sessionActions";
+import { loadCart } from "./actions/cartButtonActions";
 import { fetchProducts } from "./actions/productActions";
 import MainPage from "./components/MainPage";
 import ProductPage from './components/ProductPage';
@@ -14,6 +15,10 @@ import ProfilePage from './components/ProfilePage';
 const App = props => {
     useEffect(() => {
         props.loadToken();
+    });
+
+    useEffect(() => {
+        props.loadCart();
     });
 
     useEffect(() => {
@@ -41,6 +46,7 @@ const App = props => {
 const mapDispatchToProps = dispatch => {
     return {
         loadToken: () => dispatch(loadToken()),
+        loadCart: () => dispatch(loadCart()),
         fetchProducts: () => dispatch(fetchProducts())
     }
 }

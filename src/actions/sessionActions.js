@@ -58,6 +58,7 @@ export const logout = () => (dispatch) => {
     window.localStorage.removeItem("flash/authentication/USER_ID");
     window.localStorage.removeItem("flash/authentication/firstName");
     window.localStorage.removeItem("flash/authentication/lastName");
+    window.localStorage.removeItem("flash/cart");
     dispatch(removeToken());
     window.location.href = "/";
 };

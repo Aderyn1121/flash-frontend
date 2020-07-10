@@ -1,26 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../actions/modalActions";
-import { baseUrl } from "../config";
-import { fetchTransaction, createTransaction } from "../actions/transactionActions";
+import { createTransaction } from "../actions/transactionActions";
 
 const CheckOut = (props) => {
     const userId = props.sessionId;
     const total = props.total;
     const cartItems = props.cartItems;
-    // const handleClick = async (event) => {
-    //     event.preventDefault();
-    //     // if (props.products.length === 0) return null;
 
-    //     // let products = props.products
+    const handleBackgroundClick = event => {
+        props.closeModal();
+    }
 
-    //     // const res = await fetch(`${baseUrl}/api/transactions/${userId}`, {
-    //     //   method: 'POST',
-    //     //   headers: { 'Content-Type': 'application/json' },
-    //     //   body: JSON.stringify({ products, userId, total })
-    //     // })
-
-    // };
     const handleClick = event => {
         console.log(cartItems);
         props.createTransaction(userId, cartItems, total);
@@ -29,7 +20,7 @@ const CheckOut = (props) => {
     }
 
     return (
-        <div className="checkout__bg">
+        <div onClick={handleBackgroundClick} className="checkout__bg">
             <div className="checkout__main">
                 <div className="checkout__total-container">
                     <div className="checkout__total-name">Total</div>

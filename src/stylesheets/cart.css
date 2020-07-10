@@ -71,11 +71,15 @@
 }
 
 .cart__checkout {
-  text-align: center;
-  display: block;
+}
+
+.cart__checkout--button {
+  padding: 5px 102px 5px 102px;
   background-color: #004387;
   color: white;
+  text-align: center;
+  display: block;
   margin: 0px auto 10px auto;
-  padding: 5px 102px 5px 102px;
   width: 100px;
+  
 }

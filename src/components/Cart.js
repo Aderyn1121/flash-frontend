@@ -36,9 +36,7 @@ const Cart = (props) => {
                     );
                 })}
                 <div>Total: ${(total / 100).toFixed(2)}</div>
-                <div className="cart__checkout">
-                    <button onClick={() => props.openModal("checkout")}>Checkout</button>
-                </div>
+                <button className="cart__checkout--button" onClick={() => props.openModal("checkout")}>Checkout</button>
             </main>
             <Modal total={total} {...props} />
         </>
