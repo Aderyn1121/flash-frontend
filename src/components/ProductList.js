@@ -23,18 +23,22 @@ const ProductList = (props) => {
                 <Navigation />
                 <CategoryBar />
                 <div className="category__list">
-                    <div>{(category.slice(0, 1).toUpperCase() + category.slice(1))}</div>
-                    {matchedProducts.map((product, i) => {
-                        return (
-                            <div className="category__list-product" key={i}>
-                                <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
-                                <div className="category__list-nameprice-container">
-                                    <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
-                                    <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
+                    <div className="category__title-container">
+                    <div className='category__title'>{(category.slice(0, 1).toUpperCase() + category.slice(1))}</div>
+                    </div>
+                    <div className='category__map-container'>
+                        {matchedProducts.map((product, i) => {
+                            return (
+                                <div className="category__list-product" key={i}>
+                                    <div className="category__list-nameprice-container">
+                                        <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
+                                        <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
+                                        <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
             </>
         );
@@ -52,19 +56,24 @@ const ProductList = (props) => {
                 <Navigation />
                 <CategoryBar />
                 <div className="category__list">
-                    <div>{productsArray[parseInt(category, 10) + 1]}</div>
-                    <h1>Products</h1>
+                    <div className='category__title-container'>
+                    <div className='category__title'>{productsArray[parseInt(category, 10) - 1]}</div>
+                    <h1 className='category__title-productheader'>Products</h1>
+                    <br></br>
+                    </div>
+                    <div className='category__map-container'>
                     {matchedProducts.map((product, i) => {
                         return (
                             <div className="category__list-product" key={i}>
-                                <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
                                 <div className="category__list-nameprice-container">
                                     <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
                                     <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
                                 </div>
+                                <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
                             </div>
                         );
                     })}
+                    </div>
                 </div>
             </>
         );
