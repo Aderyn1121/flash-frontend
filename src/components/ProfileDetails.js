@@ -3,37 +3,39 @@ import { connect } from "react-redux";
 
 
 const ProfileDetails = props => {
-
-    const firstName = props.firstName;
-    const lastName = props.lastName;
-
     const transactions = Object.values(props.transactions);
+    if (transactions.length === 0) return null;
+
     const transactionArray = [];
     transactions.forEach(transaction => transactionArray.push(transaction.products))
-    // console.log(transactionsArray);
-    // console.log(newArray);
-    // newArray.map(trans => {
-    //     trans.map(inst => console.log(inst))
-    // })
 
     const productsObj = props.productsList;
-    console.log(productsObj);
+
+    const displayName = props.firstName === "demo" ? "Guest" : props.firstName === "null" ? "" : `${props.firstName} ${props.lastName}.`;
 
     return (
         <>
             <div className="profile__userinfo">
-                <div>{firstName} {lastName}</div>
+                <div className="profile__userwrap">
+                    <img className="profile__pic" src={require("../assets/camera.png")} alt="profile-logo" />
+                    <div className="profile__username">{displayName}</div>
+                </div>
+                <div className="profile__since">Flash member since 2020</div>
             </div>
             <div className="profile__orderinfo">
-                <div className="profile__myorder">My Orders</div>
-                {transactionArray.map(transaction => {
+                <div className="profile__orders">Recent Orders</div>
+                {transactionArray.map((transaction, i) => {
                     return (
                         <div className="profile__transaction">
                             {transaction.map(instance => {
                                 return (
-                                    <div>{productsObj[instance].name}</div>
+                                    <>
+                                        <div className="profile__product--name">{productsObj[instance].name}</div>
+                                        <img className="profile__product--image" src={productsObj[instance].imgUrl} alt="profile-img" />
+                                    </>
                                 );
                             })}
+                            <div className="profile__transaction--price">${(transactions[i].total / 100).toFixed(2)}</div>
                         </div>
                     )
                 })}

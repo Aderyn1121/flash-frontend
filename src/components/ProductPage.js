@@ -9,7 +9,7 @@ import { fetchReviews } from "../actions/reviewActions";
 const ProductPage = (props) => {
   let id = Number(props.match.params.productId);
 
-  console.log(id);
+  
 
   useEffect(() => {
     (async () => {
@@ -35,13 +35,13 @@ const ProductPage = (props) => {
           </div>
           <div className="products__container-inner">
             <div className="products__name">{name}</div>
-            <div className="products__price">{price}</div>
+            <div className="products__price">{(price / 100).toFixed(2)}</div>
           </div>
         </div>
 
         <div className="products__desc">
           <br></br>
-          <p>Details</p>
+          <p className='details-header'>Details</p>
           <br></br>
           <p>{description}</p>
         </div>

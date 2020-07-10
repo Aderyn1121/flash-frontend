@@ -17,7 +17,7 @@ const ProfilePage = props => {
 
     return (
         <>
-            {/* <Navigation /> */}
+            <Navigation />
             <ProfileDetails {...props} />
         </>
     );
