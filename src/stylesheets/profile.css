@@ -43,12 +43,13 @@
 }
 
 .profile__orders {
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
     font-weight: 600;
     margin-bottom: 40px;
     position: relative;
     right: 215px;
+    text-decoration: underline;
 }
 
 .profile__transaction {
@@ -68,8 +69,8 @@
 }
 
 .profile__product--image {
-    width: 350px;
-    height: 350px;    
+    width: 250px;
+    /* height: 350px;     */
     margin: 0px 0px 20px 10px;
     align-self: center;
 }

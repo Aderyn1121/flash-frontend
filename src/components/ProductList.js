@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
@@ -23,7 +23,7 @@ const ProductList = (props) => {
                 <CategoryBar />
                 <div className="category__list">
                     <div className="category__title-container">
-                    <div className='category__title'>{(category.slice(0, 1).toUpperCase() + category.slice(1))}</div>
+                        <div className='category__title'>{(category.slice(0, 1).toUpperCase() + category.slice(1))}</div>
                     </div>
                     <div className='category__map-container'>
                         {matchedProducts.map((product, i) => {
@@ -32,7 +32,7 @@ const ProductList = (props) => {
                                     <div className="category__list-nameprice-container">
                                         <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
                                         <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
-                                        <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
+                                        <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} alt="product-img" /></Link>
                                     </div>
                                 </div>
                             );
@@ -56,22 +56,22 @@ const ProductList = (props) => {
                 <CategoryBar />
                 <div className="category__list">
                     <div className='category__title-container'>
-                    <div className='category__title'>{productsArray[parseInt(category, 10) - 1]}</div>
-                    <h1 className='category__title-productheader'>Products</h1>
-                    <br></br>
+                        <div className='category__title'>{productsArray[parseInt(category, 10) - 1]}</div>
+                        <h1 className='category__title-productheader'>Products</h1>
+                        <br></br>
                     </div>
                     <div className='category__map-container'>
-                    {matchedProducts.map((product, i) => {
-                        return (
-                            <div className="category__list-product" key={i}>
-                                <div className="category__list-nameprice-container">
-                                    <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
-                                    <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
+                        {matchedProducts.map((product, i) => {
+                            return (
+                                <div className="category__list-product" key={i}>
+                                    <div className="category__list-nameprice-container">
+                                        <Link className="category__list-product-name" to={`/products/${product.id}`}>{product.name}</Link>
+                                        <div className="category__list-product-price">${(product.price / 100.00).toFixed(2)}</div>
+                                    </div>
+                                    <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} alt="product-img" /></Link>
                                 </div>
-                                <Link className="category__list-product-img" to={`/products/${product.id}`}><img className="product__item--img" src={product.imgUrl} /></Link>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
                     </div>
                 </div>
             </>
