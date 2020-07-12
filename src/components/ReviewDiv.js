@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { fetchReviews } from "../actions/reviewActions";
-import { baseUrl } from '../config'
+import { fetchReviews, createReview } from "../actions/reviewActions";
 
 const ReviewDiv = (props) => {
     let reviews = {};
@@ -21,7 +20,6 @@ const ReviewDiv = (props) => {
     }
 
     const handleSubmit = async (e) => {
-
         e.preventDefault()
 
         let userId = props.sessionId
@@ -30,16 +28,10 @@ const ReviewDiv = (props) => {
         let productId = props.id
         let reviewBody = userRev
 
-
-        const res = await fetch(`${baseUrl}/api/reviews/${props.id}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ userId, firstName, lastName, productId, reviewBody })
-        })
+        await props.createReview(userId, firstName, lastName, productId, reviewBody);
 
         await props.fetchReviews(props.id);
         createRev('');
-
     }
 
 
@@ -112,6 +104,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchReviews: (id) => dispatch(fetchReviews(id)),
+        createReview: (userId, firstName, lastName, productId, reviewBody) => dispatch(createReview(userId, firstName, lastName, productId, reviewBody)),
     };
 };
 

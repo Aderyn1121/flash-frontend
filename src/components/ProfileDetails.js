@@ -26,13 +26,13 @@ const ProfileDetails = props => {
                 <div className="profile__orders">Recent Orders</div>
                 {transactionArray.map((transaction, i) => {
                     return (
-                        <div className="profile__transaction">
+                        <div key={i} className="profile__transaction">
                             {transaction.map(instance => {
                                 return (
-                                    <>
+                                    <div key={instance}>
                                         <div className="profile__product--name">{productsObj[instance].name}</div>
                                         <img className="profile__product--image" src={productsObj[instance].imgUrl} alt="profile-img" />
-                                    </>
+                                    </div>
                                 );
                             })}
                             <div className="profile__transaction--price">Total: ${(transactions[i].total / 100).toFixed(2)}</div>

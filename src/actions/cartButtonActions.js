@@ -28,7 +28,6 @@ export const removeFromCart = (id) => dispatch => {
     const newArray = cartItemsArray.filter(item => {
         return parseInt(item, 10) !== parseInt(id, 10);
     })
-    console.log(newArray);
     window.localStorage.setItem("flash/cart", JSON.stringify(newArray));
     dispatch(removeItem(id));
 }
