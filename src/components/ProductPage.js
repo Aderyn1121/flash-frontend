@@ -60,6 +60,7 @@ const ProductPage = (props) => {
 const mapStateToProps = (state) => {
     return {
         products: state.products,
+        reviews: state.reviews,
     };
 };
 

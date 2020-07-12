@@ -25,8 +25,6 @@
     flex-direction: column;
 }
 
-
-
 .checkout__button {
   padding: 15px 80px 15px 80px;
   background-color: #004387;
@@ -38,7 +36,7 @@
 }
 
 .checkout__button:hover {
-  background-color: #2b65a0;
+    background-color: #2b65a0;
   /* background-color: #fc5d37; */
 }
 
@@ -49,9 +47,9 @@
 }
 
 .checkout__payment {
-  text-align: center;
-  padding-bottom: 10px;
-  margin: 8px auto 8px auto;
+    text-align: center;
+    padding-bottom: 10px;
+    margin: 8px auto 8px auto;
 }
 
 .cart__container {
