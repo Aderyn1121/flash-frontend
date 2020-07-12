@@ -57,7 +57,6 @@ const ProductList = (props) => {
                 <div className="category__list">
                     <div className='category__title-container'>
                         <div className='category__title'>{productsArray[parseInt(category, 10) - 1]}</div>
-                        <h1 className='category__title-productheader'>Products</h1>
                         <br></br>
                     </div>
                     <div className='category__map-container'>
