@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import ReviewDiv from "./ReviewDiv";
 import Modal from "./Modal";
@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import CategoryBar from "./CategoryBar";
 import { fetchReviews } from "../actions/reviewActions";
 import { addToCart } from "../actions/cartButtonActions";
+
 
 const ProductPage = (props) => {
     let id = Number(props.match.params.productId);

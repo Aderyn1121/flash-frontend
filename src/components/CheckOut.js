@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { closeModal } from "../actions/modalActions";
 import { createTransaction } from "../actions/transactionActions";
@@ -8,14 +8,17 @@ const CheckOut = (props) => {
     const total = props.total;
     const cartItems = props.cartItems;
 
+    // const [cartArray, setCartArray] = useState(cartItems);
+
     const handleBackgroundClick = event => {
         props.closeModal();
     }
 
     const handleClick = event => {
         props.createTransaction(userId, cartItems, total);
-        window.localStorage.removeItem("flash/cart")
-        props.history.push('/profile')
+        window.localStorage.removeItem("flash/cart");
+        props.setCartArray("");
+        props.history.push('/profile');
         props.closeModal();
     }
 
