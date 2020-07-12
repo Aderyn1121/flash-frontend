@@ -13,8 +13,8 @@ const CheckOut = (props) => {
     }
 
     const handleClick = event => {
-        console.log(cartItems);
         props.createTransaction(userId, cartItems, total);
+        window.localStorage.removeItem("flash/cart")
         props.history.push('/profile')
         props.closeModal();
     }
