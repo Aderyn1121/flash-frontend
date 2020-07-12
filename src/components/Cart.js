@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 import { connect } from "react-redux";
 import { openModal } from "../actions/modalActions";
@@ -8,6 +8,7 @@ import { removeFromCart } from "../actions/cartButtonActions";
 
 const Cart = (props) => {
     const cartItemsArray = props.cartItemsArray;
+    const [cartArray, setCartArray] = useState(cartItemsArray);
     const targetProducts = cartItemsArray.map(item => props.productsObj[item]);
     let total = 0;
 
@@ -39,7 +40,7 @@ const Cart = (props) => {
                 <div className="cart__total">Total: ${(total / 100).toFixed(2)}</div>
                 <button className="cart__checkout--button" onClick={() => props.openModal("checkout")}>Checkout</button>
             </div>
-            <Modal total={total} {...props} />
+            <Modal total={total} setCartArray={setCartArray} {...props} />
         </>
     );
 };
