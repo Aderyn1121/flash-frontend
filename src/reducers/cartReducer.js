@@ -1,4 +1,5 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cartButtonActions'
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cartButtonActions';
+import { CREATE_TRANSACTION } from "../actions/transactionActions";
 
 
 const cartReducer = (state = [], action) => {
@@ -17,6 +18,9 @@ const cartReducer = (state = [], action) => {
                 }
             }
             return newState;
+
+        case CREATE_TRANSACTION:
+            return [];
 
         default:
             return state;

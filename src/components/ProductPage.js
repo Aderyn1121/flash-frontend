@@ -15,7 +15,7 @@ const ProductPage = (props) => {
         (async () => {
             await props.fetchReviews(id);
         })();
-    });
+    }, [id]);
 
     let product = props.products[id];
 
