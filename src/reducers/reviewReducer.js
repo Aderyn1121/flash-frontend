@@ -11,7 +11,7 @@ const reviewReducer = (state = {}, action) => {
     case LOAD_REVIEWS:
       let newState = {};
       action.list.reviews.forEach((review) => (newState[review.id] = review));
-      return Object.assign(nextState, newState);
+      return newState;
     default:
       return state;
   }
