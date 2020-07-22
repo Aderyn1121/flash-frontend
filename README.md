@@ -8,7 +8,7 @@ Flash is an e-commerce platform focused on photography and inspired by sites suc
 
 ## Latest Release
 
-*Flash can be found at [HEROKU LINK PLACEHOLDER].*
+*Flash can be found at [http://aa-flash-app.herokuapp.com/](http://aa-flash-app.herokuapp.com/).*
 
 
 ## Features
